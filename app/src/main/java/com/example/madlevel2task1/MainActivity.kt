@@ -25,5 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvPlaces.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         binding.rvPlaces.adapter = placeAdapter
+
+        // Populate the list and notify adapter
+        for (i in Place.PLACE_NAMES.indices) {
+            places.add(Place(Place.PLACE_NAMES[i], Place.PLACE_RES_DRAWABLE_IDS[i]))
+        }
+        placeAdapter.notifyDataSetChanged()
     }
 }
